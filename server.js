@@ -1,6 +1,7 @@
 require('./models/db');
 
 const express = require('express');
+// requiring path allows you to interact with file paths easily, a core module in node
 const path = require('path');
 const exphbs = require('express-handlebars');
 const Handlebars = require("handlebars");
@@ -21,9 +22,11 @@ app.use(
   );
 
 app.use(bodyparser.json());
+// MIDDLEWARE
 app.set('views', path.join(__dirname, '/views/'));
 app.engine(
     'hbs',
+    // Could not run without .engine
      exphbs.engine({
           extname: 'hbs',
           defaultLayout: 'mainLayout',
